@@ -24,27 +24,7 @@ module.exports.signup = async (req, res)=>{
       res.json(e);
     }
 };
-module.exports.login = async (req, res)=>{
-    let {email, password} = req.body;
-    let user = await userModel.findOne({email});
-    if(user)
-    {
-        if(user.password == password)
-        {
-            jwt.sign({_id: user._id, email: user.email, name: user.name, role: "user"},'yasmine',(err,token)=>{
-                res.header('token', token).json({name : user.name})
-            })
-        }
-        else
-        {
-            res.json("incorrect password")
-        }
-    }
-    else
-    {
-        res.json("user not found")
-    }
-};
+
 module.exports.userByID = async (req, res)=>{
 let _id = req.body._id; 
 try {
