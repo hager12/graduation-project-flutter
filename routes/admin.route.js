@@ -3,7 +3,7 @@ const adminController = require('../controllers/admin.controller');
 const adminAuth = require('../middleware/adminAuth');
 
 
-adminRouter.get('/admin', adminAuth, adminController.home);
+adminRouter.get('/admin', adminController.home);
 // adminRouter.post('/adminLogin', adminAuth, adminController.adminLogin);
 adminRouter.get('/allEmployee', adminAuth, adminController.allEmployee);
 adminRouter.get('/allHospital', adminAuth, adminController.allHospital);
