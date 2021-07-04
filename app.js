@@ -13,7 +13,7 @@ const routing = require('./routes/user.route');
 const employeeeRouting = require('./routes/employee.route');
 const adminRouting = require('./routes/admin.route');
 const hospitalRouting = require('./routes/hospital.route');
-const mainRouting = require('./routes/hospital.route');
+const mainRouting = require('./routes/main.route');
 app.use(routing);
 app.use(employeeeRouting);
 app.use(adminRouting);
