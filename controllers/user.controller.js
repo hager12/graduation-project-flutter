@@ -13,15 +13,22 @@ module.exports.home = async (req, res)=> {
 }
 module.exports.signup = async (req, res)=>{
     try {
-      let {email, password , address, age, phoneNumber, name, picture } = req.body;
-      let user = new userModel({
-        email,password,address, age ,phoneNumber,name, picture
-      });
-      await user.save();
-      res.json({message: "success"});
+        let {email, password , address, age, phoneNumber, name, picture } = req.body;
+        let testEmail = email;
+        let testUser = await userModel.findOne({email: testEmail});
+        if(testUser){
+            res.json("this email is already exist")
+        }
+        else {
+            let user = new userModel({
+                email,password,address, age ,phoneNumber,name, picture
+            });
+            await user.save();
+            res.json({message: "success"});
+        }
     }
     catch(e) {
-      res.json(e);
+        res.json(e);
     }
 };
 
