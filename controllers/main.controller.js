@@ -12,7 +12,7 @@ module.exports.login = async (req, res)=>{
     {
         if(x.password == password)
         {
-            jwt.sign({_id: x._id, email: x.email, name: x.name, role: "user"},'yasmine',(err,token)=>{
+            jwt.sign({_id: x._id, email: x.email, name: x.name, role: "user", age: x.age, address: x.address, phoneNumber: x.phoneNumber},'yasmine',(err,token)=>{
                 res.header('token', token).json({name : x.name})
             })
         }
