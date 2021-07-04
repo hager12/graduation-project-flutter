@@ -42,6 +42,22 @@ catch(e) {
     res.json(e);
 }
 };
+module.exports.getUserData = (req, res)=>{
+    const token = req.body;
+    if(token && token != null && token != undefined){
+        jwt.verify(token, "yasmine", (err, decoded)=>{
+            if(err){
+                res.json("incorrect token")
+            }
+            else {
+                res.json(decoded)
+            }
+        })
+    }
+    else{
+        res.json("token is not provided")
+    }
+}
 module.exports.hospitalByName = async (req, res)=>{
 let location = req.body.location; 
 try {
