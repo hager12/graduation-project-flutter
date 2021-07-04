@@ -43,7 +43,7 @@ catch(e) {
 }
 };
 module.exports.getUserData = (req, res)=>{
-    const token = req.body;
+    const token = req.header('token');
     if(token && token != null && token != undefined){
         jwt.verify(token, "yasmine", (err, decoded)=>{
             if(err){
