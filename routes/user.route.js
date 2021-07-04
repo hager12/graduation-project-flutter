@@ -5,6 +5,7 @@ const userAuth = require('../middleware/userAuth');
 userRouter.get('/', userController.home);
 userRouter.post('/signup', userAuth, userController.signup);
 userRouter.post('/userByID', userAuth, userController.userByID);
+userRouter.post('/getUserData', userController.getUserData);
 userRouter.post('/hospitalByName', userAuth, userController.hospitalByName);
 userRouter.post('/contact', userAuth, userController.contact);
 userRouter.put('/updateUser', userAuth, userController.updateUser);
