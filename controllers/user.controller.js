@@ -140,41 +140,25 @@ module.exports.allReviews = async (req, res)=>{
     let allReviews = await reviewModel.find({});
     res.json(allReviews);
 };
-// module.exports.addReview = async (req, res)=>{
-//     try {
-//         let {comment, userID} = req.body;
-//         const process = spawn('python', ['../python/task_py.py', comment]);
-//         process.stdout.on('data', function (data) {
-//         console.log(data.toString());
-//         keywords = data.toString();
-//         let review = new reviewModel({
-//             comment,
-//             userID,
-//             keywords
-//         });
-//         await review.save();
-//         res.json({message: "success"});
-//     }
-//     catch(e) {
-//         res.json(e);
-//     }
-// }
-// function AddRecord(req, res) {
-//     var review = new Review()
-//     review.comment = req.body.comment;
-//     const process = spawn('python', ['../python/task_py.py', review.comment]);
-//     process.stdout.on('data', function (data) {
-//       console.log(data.toString());
-//       review.keywords = data.toString();
-//       review.save((err, doc) => {
-//         if (!err) {
-//           res.redirect('/myreviews');
-//         } else {
-//           console.log('Error During record Adding :' + err);
-//         }
-//       });
-//     })
-// };
+module.exports.addReview = async (req, res)=>{
+  try{
+    let {comment, userID} = req.body;
+    let review = new reviewModel({
+      comment,
+      userID, 
+      keywords
+    })
+    const process = spawn('python', ['./python/task_py.py', review.comment]);
+    process.stdout.on('data',(data)=> {
+      console.log(data.toString());
+      review.keywords = data.toString();
+      review.save() 
+    })
+  }
+  catch (e){
+    res.json(e);
+  }
+}
 
 module.exports.updateReview = async (req, res)=>{
 let {_id, comment} = req.body;
