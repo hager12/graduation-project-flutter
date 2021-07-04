@@ -11,7 +11,7 @@ userRouter.post('/contact', userAuth, userController.contact);
 userRouter.put('/updateUser', userAuth, userController.updateUser);
 userRouter.get('/allHospitals', userAuth, userController.allHospitals);
 userRouter.get('/allReviews', userAuth, userController.allReviews);
-// userRouter.post('/addReview', userController.addReview);
+userRouter.post('/addReview', userController.addReview);
 userRouter.put('/updateReview', userAuth, userController.updateReview);
 userRouter.delete('/deleteReview', userAuth, userController.deleteReview);
 userRouter.post('/booking', userAuth, userController.booking);
