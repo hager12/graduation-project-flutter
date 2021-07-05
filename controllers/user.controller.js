@@ -199,7 +199,7 @@ catch(e) {
 };
 
 
-module.exports.DepartmentsByHosID = async (req, res)=>{
+module.exports.departmentsByHosID = async (req, res)=>{
 let _id = req.body._id; 
 try {
     let department = await departmentModel.find({hospitalID: _id})
