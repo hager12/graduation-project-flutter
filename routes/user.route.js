@@ -7,6 +7,7 @@ userRouter.post('/signup', userController.signup);
 userRouter.post('/userByID', userController.userByID);
 userRouter.post('/getUserData', userController.getUserData);
 userRouter.post('/hospitalByName', userAuth, userController.hospitalByName);
+userRouter.post('/hospitalByID', userAuth, userController.hospitalByID);
 userRouter.post('/contact', userAuth, userController.contact);
 userRouter.put('/updateUser', userAuth, userController.updateUser);
 userRouter.get('/allHospitals', userAuth, userController.allHospitals);
