@@ -82,6 +82,23 @@ catch(e) {
     res.json(e);
 }
 };
+module.exports.hospitalByID = async (req, res)=>{
+let _id = req.body._id; 
+try {
+    let hospital = await hospitalModel.find({_id})
+    if(hospital)
+    {
+    res.json(hospital);
+    }
+    else
+    {
+    res.json("hospital not found")
+    }
+}
+catch(e) {
+    res.json(e);
+}
+};
 
 module.exports.contact = async (req, res)=>{
     let transporter = nodemailer.createTransport({
