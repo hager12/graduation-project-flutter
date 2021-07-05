@@ -198,6 +198,24 @@ catch(e) {
 }
 };
 
+
+module.exports.DepartmentsByHosID = async (req, res)=>{
+let _id = req.body._id; 
+try {
+    let department = await departmentModel.find({hospitalID: _id})
+    if(department)
+    {
+    res.json(department);
+    }
+    else
+    {
+    res.json("department not found")
+    }
+}
+catch(e) {
+    res.json(e);
+}
+};
 module.exports.booking = async (req,res)=>{
     let _id = req.body._id; 
     try {
