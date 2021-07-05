@@ -200,9 +200,9 @@ catch(e) {
 
 
 module.exports.departmentsByHosID = async (req, res)=>{
-let _id = req.body._id; 
+let hospitalID = req.body.hospitalID; 
 try {
-    let department = await departmentModel.find({hospitalID: _id})
+    let department = await departmentModel.find(hospitalID)
     if(department)
     {
     res.json(department);
