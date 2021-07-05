@@ -36,8 +36,8 @@ module.exports.login = async (req, res)=>{
     else if (z) {
         if(z.password == password)
         {
-            jwt.sign({_id: z._id, email: z.email, name: z.name, role: "amdin", age: z.age, address: z.address, phoneNumber: z.phoneNumber},'yasmine',(err,token)=>{
-                res.json({token: token, _id: z._id, email: z.email, name: z.name, role: "amdin", age: z.age, address: z.address, phoneNumber: z.phoneNumber})
+            jwt.sign({_id: z._id, email: z.email, name: z.name, role: "admin", age: z.age, address: z.address, phoneNumber: z.phoneNumber},'yasmine',(err,token)=>{
+                res.json({token: token, _id: z._id, email: z.email, name: z.name, role: "admin", age: z.age, address: z.address, phoneNumber: z.phoneNumber})
             })
         }
         else
