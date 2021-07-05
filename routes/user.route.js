@@ -16,6 +16,6 @@ userRouter.post('/addReview', userController.addReview);
 userRouter.put('/updateReview', userAuth, userController.updateReview);
 userRouter.delete('/deleteReview', userAuth, userController.deleteReview);
 userRouter.post('/departmentsByHosID', userAuth, userController.departmentsByHosID);
-userRouter.put('/booking', userAuth, userController.booking);
+userRouter.patch('/booking', userAuth, userController.booking);
 
 module.exports = userRouter;
