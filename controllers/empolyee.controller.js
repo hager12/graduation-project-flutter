@@ -12,7 +12,24 @@ module.exports.home = async (req, res) => {
 module.exports.allHospitals = async (req, res) => {
     let allHospitals = await hospitalModel.find({});
     res.json(allHospitals);
-  };
+};
+module.exports.getHosByID = async (req, res)=>{
+let _id = req.body._id; 
+try {
+    let hospital = await hospitalModel.find({_id})
+    if(hospital)
+    {
+    res.json(hospital);
+    }
+    else
+    {
+    res.json("hospital not found")
+    }
+}
+catch(e) {
+    res.json(e);
+}
+};
 module.exports.allReviews = async (req, res) => {
     let allReviews = await reviewModel.find({});
     res.json(allReviews);
