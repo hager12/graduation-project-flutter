@@ -57,7 +57,7 @@ module.exports.updateEmployee = async (req, res) => {
     }
 };
 module.exports.deleteEmployee = async (req, res) => {
-    let _id = req.body._id;
+    let _id = req.header('_id');
     try {
         await employeeModel.findOneAndDelete({_id})
         res.json("Deleted");
