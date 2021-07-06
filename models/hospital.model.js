@@ -8,6 +8,6 @@ var hospitalSchema =  new mongoose.Schema({
     picture: {type:String, require:true},
     leet: {type:String, require:true},
     lang: {type:String, required:true},
-    webURL: {type:Number, require:true}
+    webURL: {type:String, require:true}
 });
 module.exports = mongoose.model('Hospital', hospitalSchema);
