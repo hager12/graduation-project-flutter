@@ -4,6 +4,7 @@ const empAuth = require('../middleware/empAuth');
 
 employeeRouter.get('/employee', empAuth, employeeController.home);
 employeeRouter.get('/allHospitalEmp', empAuth, employeeController.allHospitals);
+employeeRouter.post('/getHosByID', empAuth, employeeController.getHosByID);
 employeeRouter.get('/allReviews', empAuth, employeeController.allReviews);
 employeeRouter.post('/addHospital', empAuth, employeeController.addHospital);
 employeeRouter.put('/updateHospital', empAuth, employeeController.updateHospital)
