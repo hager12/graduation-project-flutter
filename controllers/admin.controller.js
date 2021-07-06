@@ -15,6 +15,23 @@ module.exports.allHospital = async (req, res) => {
     let allHospital = await hospitalModel.find({});
     res.json(allHospital);
 };
+module.exports.getEmpByID = async (req, res)=>{
+let _id = req.body._id; 
+try {
+    let employee = await employeeModel.find({_id})
+    if(employee)
+    {
+    res.json(employee);
+    }
+    else
+    {
+    res.json("employee not found")
+    }
+}
+catch(e) {
+    res.json(e);
+}
+};
 module.exports.addEmployee = async (req, res) => {
     try {
       let {email, password, salary, jobTitle, address, age, name, phoneNumber, picture, role} = req.body;
