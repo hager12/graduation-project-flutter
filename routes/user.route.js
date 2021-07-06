@@ -6,6 +6,7 @@ userRouter.get('/', userController.home);
 userRouter.post('/signup', userController.signup);
 userRouter.post('/userByID', userController.userByID);
 userRouter.post('/getUserData', userController.getUserData);
+userRouter.post('/hospitalByLocation', userAuth, userController.hospitalByLocation);
 userRouter.post('/hospitalByName', userAuth, userController.hospitalByName);
 userRouter.post('/hospitalByID', userAuth, userController.hospitalByID);
 userRouter.post('/contact', userAuth, userController.contact);
