@@ -65,10 +65,27 @@ module.exports.getUserData = (req, res)=>{
         res.json("token is not provided")
     }
 }
-module.exports.hospitalByName = async (req, res)=>{
+module.exports.hospitalByLocation = async (req, res)=>{
 let location = req.body.location; 
 try {
     let hospital = await hospitalModel.find({location})
+    if(hospital)
+    {
+    res.json(hospital);
+    }
+    else
+    {
+    res.json("hospital not found")
+    }
+}
+catch(e) {
+    res.json(e);
+}
+};
+module.exports.hospitalByName = async (req, res)=>{
+let name = req.body.name; 
+try {
+    let hospital = await hospitalModel.find({name})
     if(hospital)
     {
     res.json(hospital);
