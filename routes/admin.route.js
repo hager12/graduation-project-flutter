@@ -4,9 +4,8 @@ const adminAuth = require('../middleware/adminAuth');
 
 
 adminRouter.get('/admin', adminController.home);
-// adminRouter.post('/adminLogin', adminAuth, adminController.adminLogin);
 adminRouter.get('/allEmployee', adminAuth, adminController.allEmployee);
-adminRouter.get('/allHospital', adminAuth, adminController.allHospital);
+adminRouter.get('/hospitalDashboard', adminAuth, adminController.hospitalDashboard);
 adminRouter.post('/getEmpByID', adminAuth, adminController.getEmpByID);
 adminRouter.post('/addEmployee', adminAuth, adminController.addEmployee);
 adminRouter.put('/updateEmployee', adminAuth, adminController.updateEmployee);
