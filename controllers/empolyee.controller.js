@@ -19,11 +19,17 @@ module.exports.allReviews = async (req, res) => {
 };
 module.exports.addHospital = async (req, res) => {
     try {
-        let {location, name, picture} = req.body;
+        let {name, description, location, phoneNumber, rate, picture, leet, lang, webURL} = req.body;
         let hospital = new hospitalModel({
-        location,
-        name,
-        picture
+            name,
+            description,
+            location,
+            phoneNumber,
+            rate,
+            picture, 
+            leet,
+            lang,
+            webURL
         });
         await hospital.save();
         res.json({message: "success"});
@@ -33,9 +39,9 @@ module.exports.addHospital = async (req, res) => {
     }
 };
 module.exports.updateHospital = async (req, res)=>{
-    let {_id, location, name ,picture} = req.body;
+    let {_id, name, description, location, phoneNumber, rate, picture, leet, lang, webURL} = req.body;
     try {
-        await hospitalModel.findOneAndUpdate({_id}, {location, name, picture})
+        await hospitalModel.findOneAndUpdate({_id}, {name, description, location, phoneNumber, rate, picture, leet, lang, webURL})
         res.json("Updated");
     }
     catch(e) {
