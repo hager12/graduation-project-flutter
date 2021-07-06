@@ -11,7 +11,7 @@ module.exports.allEmployee = async (req, res) => {
     let allEmployee = await employeeModel.find({});
     res.json(allEmployee);
 };
-module.exports.allHospital = async (req, res) => {
+module.exports.hospitalDashboard = async (req, res) => {
     let allHospital = await hospitalModel.find({});
     res.json(allHospital);
 };
