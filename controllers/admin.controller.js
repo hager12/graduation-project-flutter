@@ -11,10 +11,11 @@ module.exports.allEmployee = async (req, res) => {
     let allEmployee = await employeeModel.find({});
     res.json(allEmployee);
 };
-module.exports.hospitalDashboard = async (req, res) => {
-    let allHospital = await hospitalModel.find({});
-    res.json(allHospital);
-};
+
+// module.exports.hospitalDashboard = async (req, res) => {
+//     let allHospital = await hospitalModel.find({});
+//     res.json(allHospital);
+// };
 module.exports.getEmpByID = async (req, res)=>{
 let _id = req.body._id; 
 try {
